@@ -17,7 +17,7 @@ def selecionar_palavra_aleatoria():
             cursor.execute("INSERT INTO palavras (palavra) VALUES (?)", (palavra,))
 
     # Selecionar palavras
-    cursor.execute("SELECT palavra FROM palavras ORDER BY RANDOM() LIMIT 1")
+    cursor.execute("SELECT palavra FROM palavras WHERE escolhida = 0 ORDER BY RANDOM() LIMIT 1")
     row = cursor.fetchone()
     palavra_aleatoria = row[0]
 
